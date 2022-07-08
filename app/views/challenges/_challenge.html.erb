@@ -1,0 +1,17 @@
+<div id="<%= dom_id challenge %>" class="container-fluid m-0 p-0 float-start">
+  <div class="container m-0 p-0">
+    <div class="row m-0 p-0">
+      <span class="col-lg-2 float-start"><p class="tick"><%= challenge.check %></p></span>
+      <span class="col-lg-8 float-start">
+        <%#= render "inline_edit", model: @challenge, class: "name", attribute: :name do %>
+          <h2 class="heading"><%= challenge.name %></h2>
+        <%# end %>
+      </span>
+      <span class="col-lg-1 float-start"><p class="position"><%= challenge.position %></p></span>
+    </div>
+    <div class="row m-0 p-0">
+      <span class="col-lg-6 float-start"><p><%= link_to "View", challenge, class: "n-btn float-start" %><%= link_to "Edit", edit_challenge_path(challenge), class: "n-btn float-start" %></p></span>
+      <span class="col-lg-6 float-start"><p class="c-date"><%= challenge.cdate.strftime("%d" + "-" + "%m" + "-" + "%Y") %></p></span>
+    </div>
+  </div>
+</div>

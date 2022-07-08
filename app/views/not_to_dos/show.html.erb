@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @not_to_do %>
+
+<div>
+  <%= link_to "Edit this not to do", edit_not_to_do_path(@not_to_do) %> |
+  <%= link_to "Back to not to dos", not_to_dos_path %>
+
+  <%= button_to "Destroy this not to do", @not_to_do, method: :delete %>
+</div>

@@ -1,0 +1,28 @@
+<%= content_for :body_id, "challenges" %>
+<section class="container-fluid">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="success">
+          <p><%= notice %></p>
+        </div>
+        <div class="col-lg-8">
+          <h1 class="d-inline-block">Challenges</h1>
+          <%= link_to new_challenge_path, :class => "plus-new d-inline-block", title: "New challenge" do %>
+            <span class="plus">+</span>
+          <% end %>
+          <p>List anything that challenges you; move it up the list if it's the most challenging; and check it when you've overcome it.</p>
+        </div>
+        <div id="challenges">
+          <div data-controller="drag" data-drag-url="/challenges/:id/move">
+            <% @challenges.order(position: :asc).each do |challenge| %>
+              <div data-id="<%= challenge.id %>" class="card card-body mb-4 c_item">
+                <%= render challenge %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

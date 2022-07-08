@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  habitdate: 2022-06-07 18:17:08
+  title: MyString
+  score: MyString
+  days: MyString
+  total: 9.99
+  user: one
+
+two:
+  habitdate: 2022-06-07 18:17:08
+  title: MyString
+  score: MyString
+  days: MyString
+  total: 9.99
+  user: two

@@ -1,0 +1,15 @@
+<%= content_for :body_id, "tracker_" + "#{@tracker.id}" %>
+<section class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1 class="tracker-heading">Edit tracker <%= @tracker.id %></h1>
+        <%= link_to "Habit tracking", trackers_path, class: "n-btn" %>
+        <%= link_to "Done", @tracker, class: "n-btn" %>
+      </div>
+      <div class="col-lg-12">
+        <%= render "form", tracker: @tracker %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Not to dos</h1>
+
+<div id="not_to_dos">
+  <% @not_to_dos.each do |not_to_do| %>
+    <%= render not_to_do %>
+    <p>
+      <%= link_to "Show this not to do", not_to_do %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New not to do", new_not_to_do_path %>

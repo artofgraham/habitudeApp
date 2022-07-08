@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= @description %>">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "habits", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "tracker", "data-turbo-track": "reload", defer: true %>
+    <%# javascript_include_tag "tracker", "data-turbo-track": "reload", "data-turbo-cache": "false", defer: true %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <%= favicon_link_tag asset_path("habitude-logo.svg") %>
+  </head>
+  <body id="<%= yield (:body_id) %>">
+    <%= render partial: "partials/header" %> 
+    <%= yield %>
+    <%= render partial: "partials/footer" %>
+  </body>
+</html>

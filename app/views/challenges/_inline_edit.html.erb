@@ -1,0 +1,9 @@
+<% frame_id = dom_id(model, "#{attribute}") %>
+<%= form_with model: model, data: { turbo_frame: frame_id } do |form| %>
+  <%= turbo_frame_tag frame_id do %>
+    <p><%= link_to edit_challenge_path(model) do %>
+      <%= yield %>
+      <% end %>
+    </p>
+  <% end %>
+<% end %>

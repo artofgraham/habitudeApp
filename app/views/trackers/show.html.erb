@@ -1,0 +1,238 @@
+<%= content_for :body_id, "tracker_" + "#{@tracker.id}" %>
+<section class="container-fluid">
+ <div class="container">
+  <div class="row">
+   <div class="col-lg-8">
+    <h1 class="tracker-heading"><%= @tracker.title %></h1>
+    <%= link_to "Back", trackers_path, class: "n-btn" %>
+    <%= link_to "Edit", edit_tracker_path(@tracker), class: "n-btn" %>
+   </div>
+   <div class="col-lg-12 tracking">
+    <div class="success">
+     <p><%= notice %></p>
+    </div>
+    <div class="col-lg-3 float-lg-start">
+      <p class="title"><%= @tracker.title %></p>
+      <p class="score text-center <%= class_names(@tracker.score.downcase) %>"><%= @tracker.score %></p>
+    </div>
+    <div class="col-lg-6 float-lg-start">
+      <div class="col-lg-12 float-lg-start">
+        <div class="col-lg-5 d-inline-block t-date">
+          <div class="col-lg-7 float-start text-center">
+            <span id="month"><%= @tracker.habitdate.strftime("%B") %></span>
+          </div>
+          <div class="col-lg-5 float-end text-center">
+            <span id="year"><%= @tracker.habitdate.strftime("%Y") %></span>
+          </div>
+        </div>
+        <%= render "inline_edit", model: @tracker, class: "intent", attribute: :intention do %>
+          <p><%= @tracker.intention %></p>
+        <% end %>
+      </div>
+      <div class="col-lg-12 float-lg-start d-inline-block days">
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day1 do %>
+            <span class="day"><%= @tracker.day1 ? @silver_button : "1" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day2 do %>
+            <span class="day"><%= @tracker.day2 ? @silver_button : "2" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day3 do %>
+            <span class="day"><%= @tracker.day3 ? @silver_button : "3" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day4 do %>
+           <span class="day"><%= @tracker.day4 ? @silver_button : "4" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day5 do %>
+           <span class="day"><%= @tracker.day5 ? @silver_button : "5" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day6 do %>
+           <span class="day"><%= @tracker.day6 ? @silver_button : "6" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day7 do %>
+           <span class="day"><%= @tracker.day7 ? @silver_button : "7" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day8 do %>
+           <span class="day"><%= @tracker.day8 ? @silver_button : "8" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day9 do %>
+           <span class="day"><%= @tracker.day9 ? @silver_button : "9" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day10 do %>
+           <span class="day"><%= @tracker.day10 ? @silver_button : "10" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day11 do %>
+           <span class="day"><%= @tracker.day11 ? @silver_button : "11" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day12 do %>
+           <span class="day"><%= @tracker.day12 ? @silver_button : "12" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day13 do %>
+           <span class="day"><%= @tracker.day13 ? @silver_button : "13" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day14 do %>
+           <span class="day"><%= @tracker.day14 ? @silver_button : "14" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day15 do %>
+           <span class="day"><%= @tracker.day15 ? @silver_button : "15" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day16 do %>
+           <span class="day"><%= @tracker.day16 ? @silver_button : "16" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day17 do %>
+           <span class="day"><%= @tracker.day17 ? @silver_button : "17" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day18 do %>
+           <span class="day"><%= @tracker.day18 ? @silver_button : "18" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day19 do %>
+           <span class="day"><%= @tracker.day19 ? @silver_button : "19" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day20 do %>
+           <span class="day"><%= @tracker.day20 ? @silver_button : "20" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day21 do %>
+           <span class="day"><%= @tracker.day21 ? @silver_button : "21" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day22 do %>
+           <span class="day"><%= @tracker.day22 ? @silver_button : "22" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day23 do %>
+           <span class="day"><%= @tracker.day23 ? @silver_button : "23" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day24 do %>
+            <span class="day"><%= @tracker.day24 ? @silver_button : "24" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day25 do %>
+           <span class="day"><%= @tracker.day25 ? @silver_button : "25" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day26 do %>
+           <span class="day"><%= @tracker.day26 ? @silver_button : "26" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day27 do %>
+           <span class="day"><%= @tracker.day27 ? @silver_button : "27" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day28 do %>
+           <span class="day"><%= @tracker.day28 ? @silver_button : "28" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day29 do %>
+           <span class="day"><%= @tracker.day29 ? @silver_button : "29" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day30 do %>
+           <span class="day"><%= @tracker.day30 ? @silver_button : "30" %></span>
+          <% end %>
+        </div>
+        <div class="track float-start">
+          <%= render "inline_edit", model: @tracker, attribute: :day31 do %>
+           <span class="day"><%= @tracker.day31 ? @silver_button : "31" %></span>
+          <% end %>
+        </div>
+      </div>
+  </div>
+  <div class="col-lg-3 float-lg-start">
+    <h2 id="user-progress" class="text-center">Your progress</h2>
+    <div class="progress-tracking m-auto">
+      <div class="outer-ring">
+        <div class="inner-ring">
+          <p id="completion-rate"><%= @tracker.total %></p>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180" height="180">
+        <% if @tracker.score.downcase == "good" %>
+        <defs>
+          <linearGradient id="good-tracking">
+            <stop offset="0%" stop-color="#fff176" />
+            <stop offset="100%" stop-color="#e67e22" />
+          </linearGradient>
+        </defs>
+        <% elsif @tracker.score.downcase == "neutral" %>          
+        <defs>
+          <linearGradient id="neutral-tracking">
+            <stop offset="0%" stop-color="#3498db" />
+            <stop offset="100%" stop-color="#7cffa7" />
+          </linearGradient>
+        </defs>
+        <% else %>
+        <defs>
+          <linearGradient id="bad-tracking">
+            <stop offset="0%" stop-color="#ab47bc" />
+            <stop offset="100%" stop-color="#f44336" />
+          </linearGradient>
+        </defs>
+        <% end %>
+        <circle cx="90" cy="90" r="80" stroke-linecap="round" />
+      </svg>
+    </div>
+  </div>
+   <div class="col-lg-8 float-lg-start">
+    <div class="d-inline-block">
+     <%= button_to "Delete", @tracker, method: :delete, class: "n-btn" %>
+    </div><br>
+    <small>Created on <%= @tracker.created_at.strftime("%d" + "-" + "%m" + "-" + "%Y" + " at " + "%T") %></small>
+   </div>
+  </div>
+ </div>
+</div>
+</section>
+<div id="celebration">
+  <h3 class="text-center">Congratulations! &#127881;</h3>
+  <p>You've completed a month of habit tracking; this is a serious achievement. Take some well-deserved time to celebrate it.</p>
+</div>

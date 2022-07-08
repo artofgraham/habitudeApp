@@ -1,0 +1,23 @@
+<%= content_for :body_id, "habit-trackers" %>
+<section class="container-fluid">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="success">
+          <p><%= notice %></p>
+        </div>
+        <div class="col-lg-8">
+          <h1 class="heading">Habit trackers</h1>
+          <p>Starting good habits and implementing them in small ways enables self-improvement with remarkable results.</p>
+          <%= link_to "+", new_tracker_path, class: "plus-new" %>
+        </div>
+        <div id="trackers">
+          <% @trackers.each do |tracker| %>
+            <%= render tracker %>
+            <p><%= link_to "View tracker", tracker, class: "v-btn" %></p>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
