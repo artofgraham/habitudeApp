@@ -15,12 +15,17 @@
     <%= form.date_field :cdate %>
   </div>
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, "Name", style: "display: block" %>
+    <%= render "inline_fields", form: form, attribute: :name do %>
+      <%= form.text_field :name, class: "inline_edit" %>
+    <% end %>
   </div>
   <div>
     <%= form.label :check, style: "display: block" %>
-    <%= form.check_box :check %>
+    <%= render "inline_fields", form: form, attribute: :check do %>
+      <%= form.check_box :check %>
+      <div class="tick"></div>
+    <% end %>
   </div>
   <div>
     <%= form.hidden_field :position %>

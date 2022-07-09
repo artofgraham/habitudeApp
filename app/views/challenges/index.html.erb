@@ -17,7 +17,12 @@
           <div data-controller="drag" data-drag-url="/challenges/:id/move">
             <% @challenges.order(position: :asc).each do |challenge| %>
               <div data-id="<%= challenge.id %>" class="card card-body mb-4 c_item">
-                <%= render challenge %>
+                <%= render "inline_edit", model: challenge, class: "check", attribute: :check do %>
+                  <%= challenge.check %>
+                <% end %>
+                <%= render "inline_edit", model: challenge, class: "name", attribute: :name do %>
+                  <%= challenge.name %>
+                <% end %>
               </div>
             <% end %>
           </div>

@@ -294,7 +294,7 @@ circle.bad
 	border-radius: 3px;
 	cursor: move;
 }
-.c_item p, .c_item .heading
+.c_item p, .c_item a, .c_item .heading
 {
 	color: #000;
 	margin: 0;
