@@ -9,7 +9,9 @@
         <div class="col-lg-8">
           <h1 class="heading">Habit trackers</h1>
           <p>Starting good habits and implementing them in small ways enables self-improvement with remarkable results.</p>
-          <%= link_to "+", new_tracker_path, class: "plus-new" %>
+          <%= link_to new_tracker_path, class: "plus-new", title: "New tracker" do %>
+            <span class="plus">+</span>
+          <% end %>
         </div>
         <div id="trackers">
           <% @trackers.each do |tracker| %>

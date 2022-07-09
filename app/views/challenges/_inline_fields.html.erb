@@ -1,0 +1,5 @@
+<% frame_id = dom_id(form.object, "#{attribute}") %>
+<%= turbo_frame_tag frame_id, class: "inline-edit" do %>
+  <%= yield %>
+  <%= form.button class: "done" do %>Done<% end %>
+<% end %>
