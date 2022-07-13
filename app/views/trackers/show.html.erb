@@ -1,3 +1,4 @@
+<%= javascript_include_tag "tracker.js" %>
 <%= content_for :body_id, "tracker_" + "#{@tracker.id}" %>
 <section class="container-fluid">
  <div class="container">
@@ -25,9 +26,11 @@
             <span id="year"><%= @tracker.habitdate.strftime("%Y") %></span>
           </div>
         </div>
-        <%= render "inline_edit", model: @tracker, class: "intent", attribute: :intention do %>
-          <p><%= @tracker.intention %></p>
-        <% end %>
+        <div class="intention">
+          <%= render "inline_edit", model: @tracker, class: "intent", attribute: :intention do %>
+            <p><%= @tracker.intention %></p>
+          <% end %>
+        </div>
       </div>
       <div class="col-lg-12 float-lg-start d-inline-block days">
         <div class="track float-start">
@@ -192,7 +195,7 @@
     <div class="progress-tracking m-auto">
       <div class="outer-ring">
         <div class="inner-ring">
-          <p id="completion-rate"><%= @tracker.total %></p>
+          <p id="completion-rate"><%= @tracker.total %></p><span>%</span>
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180" height="180">
@@ -203,7 +206,7 @@
             <stop offset="100%" stop-color="#e67e22" />
           </linearGradient>
         </defs>
-        <% elsif @tracker.score.downcase == "neutral" %>          
+        <% elsif @tracker.score.downcase == "neutral" %>
         <defs>
           <linearGradient id="neutral-tracking">
             <stop offset="0%" stop-color="#3498db" />
@@ -233,6 +236,6 @@
 </div>
 </section>
 <div id="celebration">
-  <h3 class="text-center">Congratulations! &#127881;</h3>
-  <p>You've completed a month of habit tracking; this is a serious achievement. Take some well-deserved time to celebrate it.</p>
+  <h3 class="text-center black">Congratulations! &#127881;</h3>
+  <p>You've completed a month of habit tracking; this is a serious achievement.<br><br> Take some well-deserved time to celebrate it.</p>
 </div>

@@ -1,10 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @not_to_do %>
-
+<%= content_for :body_id, "not-to-do_" + "#{@not_to_do.id}" %>
+<section class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 challenge">
+        <div class="cdone">
+          <p><%= @not_to_do.done %></p>
+        </div>
+        <h2 class="challenge-heading"><%= @not_to_do.name %></h2>
+        <div class="date">
+          <p><%= @not_to_do.listdate %></p>
+        </div>
+        <div class="position">
+          <p><%= @not_to_do.priority %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <div>
-  <%= link_to "Edit this not to do", edit_not_to_do_path(@not_to_do) %> |
-  <%= link_to "Back to not to dos", not_to_dos_path %>
-
-  <%= button_to "Destroy this not to do", @not_to_do, method: :delete %>
+  <%= link_to "Edit", edit_not_to_do_path(@not_to_do) %> |
+  <%= link_to "Back", not_to_dos_path %>
+  <%= button_to "Delete", @not_to_do, method: :delete %>
 </div>

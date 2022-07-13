@@ -8,25 +8,25 @@
           <li class="nav-item dropdown">
             <%= link_to "Habits", habits_path, { class: "nav-link dropdown-toggle btn invert", id: "navbarDropdown", role: "button", "data-bs-toggle": "dropdown", "aria-expanded": "false", tabindex: "2" } %>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Tracking", trackers_path, class: "dropdown-item", tabindex: "3" %></li>
-              <li><%= link_to "New tracker", new_tracker_path, class: "dropdown-item", tabindex: "4" %></li>
+              <li><%= link_to "Habit tracking", habits_path, class: "dropdown-item", tabindex: "3" %></li>
+              <li><%= link_to "Trackers", trackers_path, class: "dropdown-item", tabindex: "4" %></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <%= link_to "Essentials", essentials_path, { class: "nav-link dropdown-toggle btn invert", id: "navbarDropdown", role: "button", "data-bs-toggle": "dropdown", "aria-expanded": "false", tabindex: "5" } %>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Not-to-dos", not_to_dos_path, class: "dropdown-item", tabindex: "6" %></li>
-              <li><%= link_to "New not-to-do", new_not_to_do_path, class: "dropdown-item", tabindex: "7" %></li>
+              <li><%= link_to "Essentials", essentials_path, class: "dropdown-item", tabindex: "6" %></li>
+              <li><%= link_to "Not-to-dos", not_to_dos_path, class: "dropdown-item", tabindex: "7" %></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <%= link_to "Comfort zone", comfort_zone_path, { class: "nav-link dropdown-toggle btn invert", id: "navbarDropdown", role: "button", "data-bs-toggle": "dropdown", "aria-expanded": "false", tabindex: "5" } %>
+            <%= link_to "Comfort zone", comfort_zone_path, { class: "nav-link dropdown-toggle btn invert", id: "navbarDropdown", role: "button", "data-bs-toggle": "dropdown", "aria-expanded": "false", tabindex: "8" } %>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Challenges", challenges_path, class: "dropdown-item", tabindex: "6" %></li>
-              <li><%= link_to "New challenge", new_challenge_path, class: "dropdown-item", tabindex: "7" %></li>
+              <li><%= link_to "Comfort zone", comfort_zone_path, class: "dropdown-item", tabindex: "9" %></li>
+              <li><%= link_to "Challenges", challenges_path, class: "dropdown-item", tabindex: "10" %></li>
             </ul>
           </li>
-          <li class="nav-item"><%= link_to "Guide", guide_path, class: "nav-link btn invert", tabindex: "8" %></li>
+          <li class="nav-item"><%= link_to "Guide", guide_path, class: "nav-link btn invert", tabindex: "11" %></li>
           <% if user_signed_in? %>
             <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, :method => :get, class: "nav-link btn" %></li>
             <li><span class="nav-link btn">Hello, <%= current_user.email %>!</span><span class="notice"><%= notice %></span><span class="alert"><%= alert %></span></li>

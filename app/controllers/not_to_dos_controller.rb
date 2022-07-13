@@ -1,9 +1,10 @@
 class NotToDosController < ApplicationController
-  before_action :set_not_to_do, only: %i[ show edit update destroy ]
+  before_action :set_not_to_do, only: %i[ show edit update destroy move ]
   before_action :authenticate_user!
 
   # GET /not_to_dos or /not_to_dos.json
   def index
+    @title = "All not-to-dos &mdash; Habitude".html_safe
     @not_to_dos = NotToDo.all
     @not_to_dos = NotToDo.where user_id: current_user.id
   end
@@ -14,6 +15,7 @@ class NotToDosController < ApplicationController
       redirect_to not_to_do_url
       return
     end
+    @title = "Not-to-do: " + @not_to_do.name + " \u{2014} Habitude"
   end
 
   # GET /not_to_dos/new
@@ -76,6 +78,11 @@ class NotToDosController < ApplicationController
       format.html { redirect_to not_to_dos_url, notice: "Your not-to-do was successfully deleted." }
       format.json { head :no_content }
     end
+  end
+
+  def move
+    @not_to_do.insert_at(params[:position].to_i)
+    head :ok
   end
 
   private

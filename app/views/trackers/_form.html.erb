@@ -19,8 +19,8 @@
   <div class="col-lg-6 float-start">
     <%= form.label :habitdate, "Start date", style: "display: block" %>
     <%= form.date_field :habitdate %>
+    <%= form.label :intention, "Intention of implementation", style: "display: block" %>
     <%= render "inline_fields", form: form, attribute: :intention do %>
-      <%= form.label :intention, "Intention of implementation", style: "display: block" %>
       <%= form.text_field :intention, class: "inline_edit" %>
     <% end %>
     <div class="col-lg-12 days">

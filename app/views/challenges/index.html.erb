@@ -7,7 +7,7 @@
           <p><%= notice %></p>
         </div>
         <div class="col-lg-8">
-          <h1 class="d-inline-block">Challenges</h1>
+          <h1 class="heading d-inline-block">Challenges</h1>
           <%= link_to new_challenge_path, :class => "plus-new d-inline-block", title: "New challenge" do %>
             <span class="plus">+</span>
           <% end %>
@@ -16,13 +16,29 @@
         <div id="challenges">
           <div data-controller="drag" data-drag-url="/challenges/:id/move">
             <% @challenges.order(position: :asc).each do |challenge| %>
-              <div data-id="<%= challenge.id %>" class="card card-body mb-4 c_item">
-                <%= render "inline_edit", model: challenge, class: "check", attribute: :check do %>
-                  <%= challenge.check %>
-                <% end %>
-                <%= render "inline_edit", model: challenge, class: "name", attribute: :name do %>
-                  <%= challenge.name %>
-                <% end %>
+              <div data-id="<%= challenge.id %>" class="mb-4 d-inline-block c_item">
+                <div class="col-lg-1 float-start">
+                  <div class="cdone">
+                    <%= render "inline_edit", model: challenge, class: "check", attribute: :check do %>
+                      <p><%= challenge.check %></p>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="col-lg-8 float-start">
+                  <h2 class="challenge-heading">
+                    <%= render "inline_edit", model: challenge, class: "name", attribute: :name do %>
+                      <%= challenge.name %>
+                    <% end %>
+                  </h2>
+                </div>
+                <div class="col-lg-2 float-start">
+                  <div class="date">
+                    <p><%= challenge.cdate %></p>
+                  </div>
+                </div>
+                <div class="col-lg-1 float-start">
+                  <p><%= link_to "Edit", edit_challenge_path(challenge), class: "n-btn" %></p>              
+                </div>
               </div>
             <% end %>
           </div>
