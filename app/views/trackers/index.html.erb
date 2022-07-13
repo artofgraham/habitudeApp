@@ -1,3 +1,4 @@
+<%= javascript_include_tag "alltrackers.js" %>
 <%= content_for :body_id, "habit-trackers" %>
 <section class="container-fluid">
   <div class="container-lg">
@@ -7,17 +8,81 @@
           <p><%= notice %></p>
         </div>
         <div class="col-lg-8">
-          <h1 class="heading">Habit trackers</h1>
-          <p>Starting good habits and implementing them in small ways enables self-improvement with remarkable results.</p>
-          <%= link_to new_tracker_path, class: "plus-new", title: "New tracker" do %>
+          <h1 class="heading d-inline-block">Habit trackers</h1>
+          <%= link_to new_tracker_path, class: "plus-new d-inline-block", title: "New tracker" do %>
             <span class="plus">+</span>
           <% end %>
+          <p></p>
         </div>
         <div id="trackers">
           <% @trackers.each do |tracker| %>
-            <%= render tracker %>
-            <p><%= link_to "View tracker", tracker, class: "v-btn" %></p>
-            <% end %>
+            <div class="col-lg-6 float-start">
+              <div class="habit tracker_<%= tracker.id %>">
+                <div class="frag">
+                  <h2 class="tracker-heading"><%= tracker.title %></h2>
+                </div>
+                <div class="frag">
+                  <p class="score text-center <%= class_names(tracker.score.downcase) %>"><%= tracker.score %></p>
+                </div>
+                <div class="col-lg-8 d-inline-block t-date">
+                  <div class="col-lg-8 float-start text-center">
+                    <span id="month"><%= tracker.habitdate.strftime("%B") %></span>
+                  </div>
+                  <div class="col-lg-4 float-end text-center">
+                    <span id="year"><%= tracker.habitdate.strftime("%Y") %></span>
+                  </div>
+                </div>
+                <div class="frag">
+                  <p class="intent"><%= tracker.intention %></p>
+                </div>
+                <div class="col-lg-12 float-lg-start">
+                  <!--Declare and initialise an array of days.-->
+                  <% days = Array.new() %>
+                  <!--Push each day of the month into the array of days.-->
+                  <% days.push(tracker.day1, tracker.day2, tracker.day3, tracker.day4, tracker.day5, tracker.day6, tracker.day7, tracker.day8, tracker.day9, tracker.day10, tracker.day11, tracker.day12, tracker.day13, tracker.day14, tracker.day15, tracker.day16, tracker.day17, tracker.day18,tracker.day19, tracker.day20, tracker.day21, tracker.day22, tracker.day23, tracker.day24, tracker.day25, tracker.day26, tracker.day27, tracker.day28, tracker.day29, tracker.day30, tracker.day31) %>
+                  <!--Count the number of days that contain 'true', and count the total number of days in the specific month being tracked.-->
+                  <div class="frag">
+                    <p>You have <span class="latest"><strong><%= @tdays = days.count(days.include? true) %></strong></span> tracked days in a month of <%= @tmonth = tracker.habitdate.all_month.count %> days.</p>
+                  </div>
+                  <div class="progress-tracking m-auto">
+                  <div class="outer-ring">
+                    <div class="inner-ring">
+                      <p class="completion-rate"><%= (@tdays.to_f / @tmonth.to_f * 100).round %></p><span>%</span>
+                    </div>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200">
+                    <% if tracker.score.downcase == "good" %>
+                      <defs>
+                        <linearGradient id="good-tracking">
+                          <stop offset="0%" stop-color="#fff176" />
+                          <stop offset="100%" stop-color="#e67e22" />
+                        </linearGradient>
+                      </defs>
+                    <% elsif tracker.score.downcase == "neutral" %>
+                      <defs>
+                        <linearGradient id="neutral-tracking">
+                          <stop offset="0%" stop-color="#3498db" />
+                          <stop offset="100%" stop-color="#7cffa7" />
+                        </linearGradient>
+                      </defs>
+                    <% else %>
+                      <defs>
+                        <linearGradient id="bad-tracking">
+                          <stop offset="0%" stop-color="#ab47bc" />
+                          <stop offset="100%" stop-color="#f44336" />
+                        </linearGradient>
+                      </defs>
+                    <% end %>
+                    <circle cx="100" cy="100" r="90" stroke-linecap="round" class="<%= tracker.score.downcase %>" />
+                  </svg>
+                </div>
+                </div>
+                <div class="frag">
+                  <p><%= link_to "Track habit", tracker, class: "n-btn d-inline-block" %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

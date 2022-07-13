@@ -35,7 +35,38 @@ h2
 }
 p, span, input
 {
+	margin: 0;
 	font-size: 22px;
+}
+#home h1
+{
+	font-size: 100px;
+	font-weight: 600;
+}
+.slogan
+{
+	font-size: 60px;
+	font-weight: 100;
+}
+#home hr:not(size)
+{
+	color: #fff;
+	width: 10%;
+	height: 5px;
+	margin: 0 auto;
+	opacity: 1;
+}
+#home h2
+{
+	font-size: 50px;
+}
+.checker
+{
+	background-color: #404141;
+}
+#home .col-lg-6
+{
+	padding: 70px;
 }
 nav.navbar
 {
@@ -90,6 +121,16 @@ nav.navbar-light ul.navbar-nav li a.nav-link:hover
 	transform: translate(25%, -3%);
 	background-color: transparent;
 }
+.habit
+{
+	height: 600px;
+	margin: 0 20px 20px 0;
+	padding: 20px;
+	position: relative;
+	background-color: transparent;
+	border: 1px solid #fff;
+	border-radius: 3px;
+}
 .tracking > div:nth-child(2)
 {
 	padding: 57px 10px 0 0;
@@ -128,9 +169,13 @@ nav.navbar-light ul.navbar-nav li a.nav-link:hover
 {
 	border-right: 1px solid #fff;
 }
+.intention
+{
+	position: relative;
+}
 .inline_edit
 {
-	width: 100%;
+	width: 85%;
 	border: 0;
 	border-bottom: 1px solid;
 	position: relative;
@@ -182,6 +227,13 @@ nav.navbar-light ul.navbar-nav li a.nav-link:hover
 	background-color: #fff;
 	outline: 0;
 }
+.intention .done
+{
+	padding: 5px 0;
+	right: 0;
+	bottom: 0;
+	left: auto;
+}
 .read-only
 {
 	position: relative;
@@ -215,6 +267,27 @@ input
 	height: 180px;
 	position: relative;
 }
+#habit-trackers .progress-tracking
+{
+	width: 200px;
+	height: 200px;
+}
+.frag
+{
+	margin-bottom: 20px;
+}
+.frag:last-child
+{
+	margin-right: 20px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.latest
+{
+	font-size: 35px;
+	line-height: 0;
+}
 .outer-ring
 {
 	width: inherit;
@@ -224,18 +297,21 @@ input
 	border: 1px solid transparent;
 	box-shadow: 0 0 14px #fff;
 }
+#habit-trackers .outer-ring, #habit-trackers .inner-ring
+{
+	width: 200px;
+	height: 200px;
+	padding: 0;
+}
 .inner-ring
 {
 	width: 150px;
 	height: 150px;
-	border-radius: 50%;
-	border: 1px solid transparent;
-}
-.inner-ring
-{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-radius: 50%;
+	border: 1px solid transparent;
 }
 .inner-ring p
 {
@@ -277,18 +353,20 @@ circle.bad
 }
 #celebration
 {
+	color: #000;
 	display: none;
-	margin-top: 20px;
-	padding: 10px 15px;
+	width: 600px;
+	padding: 30px 40px;
+	background-color: #fff;
 	border: 1px solid #fff;
 	border-radius: 3px;
 }
 .c_item
 {
-	width: 400px;
+	width: 80%;
 	height: auto;
 	margin: 0;
-	padding: 0;
+	padding: 10px;
 	background-color: #fff;
 	border: 1px solid transparent;
 	border-radius: 3px;
@@ -299,10 +377,6 @@ circle.bad
 	color: #000;
 	margin: 0;
 	padding: 0;
-}
-#challenges .heading
-{
-	font-size: 28px;
 }
 #challenges .n-btn, .c-date
 {

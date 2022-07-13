@@ -1,46 +1,36 @@
 <%= form_with(model: not_to_do) do |form| %>
   <% if not_to_do.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(not_to_do.errors.count, "error") %> prohibited this not_to_do from being saved:</h2>
-
+     <section class="error">
+      <h2><%= pluralize(not_to_do.errors.count, "error") %> prevented the creation of your not-to-do.</h2>
       <ul>
         <% not_to_do.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
-    </div>
+    </section>
   <% end %>
-
   <div>
-    <%= form.label :listdate, style: "display: block" %>
+    <%= form.label :listdate, "Date", style: "display: block" %>
     <%= form.date_field :listdate %>
   </div>
-
   <div>
-    <%= form.label :done, style: "display: block" %>
+    <%= form.label :done, "Not done", style: "display: block" %>
     <%= form.check_box :done %>
   </div>
-
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :name, "Name", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
-
   <div>
-    <%= form.label :position, style: "display: block" %>
-    <%= form.number_field :position %>
+    <%= form.hidden_field :position %>
   </div>
-
   <div>
-    <%= form.label :priority, style: "display: block" %>
-    <%= form.text_field :priority %>
+    <%= form.label :priority, "Priority", style: "display: block" %>
+    <%= form.select :priority, [["Select a priority", nil], "High", "Normal", "Low"], class: "form-select" %>
   </div>
-
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.hidden_field :user_id %>
   </div>
-
   <div>
     <%= form.submit %>
   </div>

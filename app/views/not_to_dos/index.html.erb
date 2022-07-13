@@ -1,14 +1,45 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Not to dos</h1>
-
-<div id="not_to_dos">
-  <% @not_to_dos.each do |not_to_do| %>
-    <%= render not_to_do %>
-    <p>
-      <%= link_to "Show this not to do", not_to_do %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New not to do", new_not_to_do_path %>
+<%= content_for :body_id, "not-to-dos" %>
+<section class="container-fluid">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="success">
+          <p><%= notice %></p>
+        </div>
+        <div class="col-lg-8">
+          <h1 class="heading d-inline-block">Not-to-dos</h1>
+          <%= link_to new_not_to_do_path, :class => "plus-new d-inline-block", title: "New not-to-do" do %>
+            <span class="plus">+</span>
+          <% end %>
+          <p>A not-to-do is something that is not important, but takes your time and might distract you or remove you from spending time on what is important. List your not-to-dos and move them up or down the list according to their <em>unimportance</em> and check them when you have not done them.</p>
+        </div>
+        <div id="not_to_dos">
+          <div data-controller="drag" data-drag-url="/not_to_dos/:id/move">
+            <% @not_to_dos.order(position: :asc).each do |not_to_do| %>
+              <div data-id="<%= not_to_do.id %>" class="mb-4 d-inline-block c_item">
+                <div class="col-lg-1 float-start">
+                  <div class="cdone">
+                    <p><%= not_to_do.done %></p>
+                  </div>
+                </div>
+                <div class="col-lg-8 float-start">
+                  <div class="cdone">
+                    <p><%= not_to_do.name %></p>
+                  </div>
+                </div>
+                <div class="col-lg-2 float-start">
+                  <div class="cdone">
+                    <p><%= not_to_do.priority %></p>
+                  </div>
+                </div>
+                <div class="col-lg-1 float-start">
+                  <p><%= link_to "Edit", edit_not_to_do_path(not_to_do), class: "n-btn" %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

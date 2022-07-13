@@ -104,7 +104,8 @@ function updateTracker(){
 			svgDashArray = 500;
 			svgDashOffset = svgDashArray - svgDashArray * rate;
 			svgDashOffset = svgDashOffset.toFixed(1);
-			document.documentElement.style.setProperty('--cRate', svgDashOffset);
+			document.documentElement.style.setProperty("--cRate", svgDashOffset);
+			// console.log(svgDashOffset);
 			runCounter();
 		}
 		// track[i].addEventListener("click", trackDaily);
@@ -132,9 +133,9 @@ function updateTracker(){
 		incrementalRate = setInterval(() => {
 			if(counter < completion){
 				counter += 1;
-				completionRate.innerHTML = counter + "%";
+				completionRate.innerHTML = counter;
 			} else if(counter == 0){
-				completionRate.innerHTML = 0 + "%";
+				completionRate.innerHTML = 0;
 			} else{
 				clearInterval(incrementalRate);
 			}

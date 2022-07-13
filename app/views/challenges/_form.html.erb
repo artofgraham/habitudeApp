@@ -17,13 +17,13 @@
   <div>
     <%= form.label :name, "Name", style: "display: block" %>
     <%= render "inline_fields", form: form, attribute: :name do %>
-      <%= form.text_field :name, class: "inline_edit" %>
+      <p><%= form.text_field :name, class: "inline-edit" %></p>
     <% end %>
   </div>
   <div>
     <%= form.label :check, style: "display: block" %>
     <%= render "inline_fields", form: form, attribute: :check do %>
-      <%= form.check_box :check %>
+      <%= form.check_box :check, class: "inline-edit" %>
       <div class="tick"></div>
     <% end %>
   </div>
