@@ -38,6 +38,19 @@ p, span, input
 	margin: 0;
 	font-size: 22px;
 }
+.underscore:after
+{
+	width: 110px;
+	display: block;
+	content: "";
+	margin: 5px 0 15px;
+	border-bottom: 4px solid #fff;
+}
+.underscore.pro:after
+{
+	width: 120px;
+	display: inline-block;
+}
 #home h1
 {
 	font-size: 100px;
@@ -123,7 +136,7 @@ nav.navbar-light ul.navbar-nav li a.nav-link:hover
 }
 .habit
 {
-	height: 600px;
+	height: 650px;
 	margin: 0 20px 20px 0;
 	padding: 20px;
 	position: relative;
@@ -172,6 +185,61 @@ nav.navbar-light ul.navbar-nav li a.nav-link:hover
 .intention
 {
 	position: relative;
+}
+input[type="checkbox"]
+{
+	width: 35px;
+	height: 35px;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50%, 50%);
+	z-index: 100;
+	cursor: pointer;
+}
+.tick
+{
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	border: 0;
+	transform: translate(50%, 50%);
+	transition: 0.2s ease-in-out 0s;
+}
+input[type="checkbox"]:hover ~ .tick
+{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+input[type="checkbox"]:checked ~ .tick, .tick:checked
+{
+	border: 0;
+	background-color: #000;
+}
+.tick:after
+{
+	display: none;
+	content: "";
+	position: absolute;
+}
+input[type="checkbox"]:checked ~ .tick:after
+{
+	display:  block;
+}
+.tick:after
+{
+	width: 14px;
+	height: 28px;
+	top: -50%;
+	left: 42%;
+	border: solid #fff;
+	border-width: 0 7px 7px 0;
+	-webkit-transform: rotate(45deg) translate(50%, 50%);
+	-ms-transform: rotate(45deg) translate(50%, 50%);
+	transform: rotate(45deg) translate(50%, 50%);
 }
 .inline_edit
 {
@@ -267,18 +335,21 @@ input
 	height: 180px;
 	position: relative;
 }
-#habit-trackers .progress-tracking
+.insights
 {
-	width: 200px;
-	height: 200px;
+	margin-top: 20px;
+}
+.insights p
+{
+	padding: 10px 0;
 }
 .frag
 {
 	margin-bottom: 20px;
 }
-.frag:last-child
+.frag p a
 {
-	margin-right: 20px;
+	margin: 0 20px 20px 0;
 	position: absolute;
 	right: 0;
 	bottom: 0;
@@ -296,12 +367,6 @@ input
 	border-radius: 50%;
 	border: 1px solid transparent;
 	box-shadow: 0 0 14px #fff;
-}
-#habit-trackers .outer-ring, #habit-trackers .inner-ring
-{
-	width: 200px;
-	height: 200px;
-	padding: 0;
 }
 .inner-ring
 {
