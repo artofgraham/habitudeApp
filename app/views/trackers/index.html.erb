@@ -36,49 +36,65 @@
                   <p class="intent"><%= tracker.intention %></p>
                 </div>
                 <div class="col-lg-12 float-lg-start">
-                  <!--Declare and initialise an array of days.-->
-                  <% days = Array.new() %>
-                  <!--Push each day of the month into the array of days.-->
-                  <% days.push(tracker.day1, tracker.day2, tracker.day3, tracker.day4, tracker.day5, tracker.day6, tracker.day7, tracker.day8, tracker.day9, tracker.day10, tracker.day11, tracker.day12, tracker.day13, tracker.day14, tracker.day15, tracker.day16, tracker.day17, tracker.day18,tracker.day19, tracker.day20, tracker.day21, tracker.day22, tracker.day23, tracker.day24, tracker.day25, tracker.day26, tracker.day27, tracker.day28, tracker.day29, tracker.day30, tracker.day31) %>
-                  <!--Count the number of days that contain 'true', and count the total number of days in the specific month being tracked.-->
-                  <div class="frag">
-                    <p>You have <span class="latest"><strong><%= @tdays = days.count(days.include? true) %></strong></span> tracked days in a month of <%= @tmonth = tracker.habitdate.all_month.count %> days.</p>
-                  </div>
-                  <div class="progress-tracking m-auto">
-                  <div class="outer-ring">
-                    <div class="inner-ring">
-                      <p class="completion-rate"><%= (@tdays.to_f / @tmonth.to_f * 100).round %></p><span>%</span>
+                  <div class="col-lg-6 float-start">
+                    <h3 class="underscore">Insights</h3>
+                    <!--Declare and initialise an array of days.-->
+                    <% days = Array.new() %>
+                    <!--Push each day of the month into the array of days.-->
+                    <% days.push(tracker.day1, tracker.day2, tracker.day3, tracker.day4, tracker.day5, tracker.day6, tracker.day7, tracker.day8, tracker.day9, tracker.day10, tracker.day11, tracker.day12, tracker.day13, tracker.day14, tracker.day15, tracker.day16, tracker.day17, tracker.day18,tracker.day19, tracker.day20, tracker.day21, tracker.day22, tracker.day23, tracker.day24, tracker.day25, tracker.day26, tracker.day27, tracker.day28, tracker.day29, tracker.day30, tracker.day31) %>
+                    <!--Count the number of days that contain 'true', and count the total number of days in the specific month being tracked.-->
+                    <div class="frag insights">
+                      <p>You have <span class="latest"><strong><%= @tdays = days.count(days.include? true) %></strong></span> tracked days in a month of <%= @tmonth = tracker.habitdate.all_month.count %> days.</p>
+                      <p><span class="latest"><strong><%= @remaining = @tmonth - @tdays %></strong></span> <% if @remaining == 1 %> day remains <% else %> days remain <% end %></p>
                     </div>
                   </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200">
-                    <% if tracker.score.downcase == "good" %>
-                      <defs>
-                        <linearGradient id="good-tracking">
-                          <stop offset="0%" stop-color="#fff176" />
-                          <stop offset="100%" stop-color="#e67e22" />
-                        </linearGradient>
-                      </defs>
-                    <% elsif tracker.score.downcase == "neutral" %>
-                      <defs>
-                        <linearGradient id="neutral-tracking">
-                          <stop offset="0%" stop-color="#3498db" />
-                          <stop offset="100%" stop-color="#7cffa7" />
-                        </linearGradient>
-                      </defs>
-                    <% else %>
-                      <defs>
-                        <linearGradient id="bad-tracking">
-                          <stop offset="0%" stop-color="#ab47bc" />
-                          <stop offset="100%" stop-color="#f44336" />
-                        </linearGradient>
-                      </defs>
-                    <% end %>
-                    <circle cx="100" cy="100" r="90" stroke-linecap="round" class="<%= tracker.score.downcase %>" />
-                  </svg>
-                </div>
+                  <div class="col-lg-6 float-end">
+                    <div class=" col-lg-6 m-auto">
+                      <h3 class="underscore pro m-auto text-center">Progress</h3>
+                    </div>
+                    <div class="progress-tracking m-auto">
+                      <div class="outer-ring">
+                        <div class="inner-ring">
+                          <p class="completion-rate"><%= (@tdays.to_f / @tmonth.to_f * 100).round %></p><span>%</span>
+                        </div>
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180" height="180">
+                        <% if tracker.score.downcase == "good" %>
+                          <defs>
+                            <linearGradient id="good-tracking">
+                              <stop offset="0%" stop-color="#fff176" />
+                              <stop offset="100%" stop-color="#e67e22" />
+                            </linearGradient>
+                          </defs>
+                        <% elsif tracker.score.downcase == "neutral" %>
+                          <defs>
+                            <linearGradient id="neutral-tracking">
+                              <stop offset="0%" stop-color="#3498db" />
+                              <stop offset="100%" stop-color="#7cffa7" />
+                            </linearGradient>
+                          </defs>
+                        <% else %>
+                          <defs>
+                            <linearGradient id="bad-tracking">
+                              <stop offset="0%" stop-color="#ab47bc" />
+                              <stop offset="100%" stop-color="#f44336" />
+                            </linearGradient>
+                          </defs>
+                        <% end %>
+                        <circle cx="90" cy="90" r="80" stroke-linecap="round" class="<%= tracker.score.downcase %>" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <div class="frag">
-                  <p><%= link_to "Track habit", tracker, class: "n-btn d-inline-block" %></p>
+                  <p><%= link_to tracker, class: "n-btn d-inline-block" do %>
+                      <% if @remaining == 0 %>
+                        Completed &#128293;
+                      <% else %>
+                        Keep tracking &#128170;
+                      <% end %>
+                    <% end %>
+                  </p>
                 </div>
               </div>
             </div>
